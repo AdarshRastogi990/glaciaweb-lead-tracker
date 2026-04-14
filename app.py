@@ -7,6 +7,12 @@ app = Flask(__name__)
 # CORS security guard ko batata hai ki kisi aur port (jaise React ka port) se aane wali request ko allow karo
 CORS(app) 
 
+from flask import redirect
+
+@app.route("/")
+def home():
+    return redirect("/api/leads")
+
 # Database connect karne ka function
 def get_db_connection():
     # hum database file ka naam 'leads.db' rakh rahe hain
